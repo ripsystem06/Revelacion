@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Erik y Claudia</title>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section id="portada" class="pantalla-completa">
+    <img src="img/portada.png" alt="Portada de bienvenida" class="portada-img">
+    <div class="mensaje-portada parpadeo">haz clic para continuar</div>
+  </section>
+  <audio id="bg-music" src="song/Canción de Cuna - Baby Bond.mp3" preload="auto" loop></audio>
+  <div id="player-container"></div>
+  <main class="container">
+    <!-- SECCIÓN 1 -->
+    <section class="seccion fade-section" id="seccion1">
+      <div class="flores-top-container">
+        <img src="img/divirsor.gif" alt="Flores Decorativas" class="flores-top">
+      </div>
+
+      <div class="contenido">
+        <p class="frase rosa">“Dos corazones laten con emoción…<br>uno de ellos nos dirá si será un príncipe o una princesa”</p>
+
+        <p class="subtitulo azul">Estás invitado</p>
+        <p class="titulo-mayus rosa">A LA REVELACIÓN DEL BEBÉ DE:</p>
+        <h1 class="nombre azul"><strong>Erik y Claudia</strong></h1>
+
+        <div class="fecha-hora rosa">
+          <div>
+            <div class="numero">17-08-2025</div>
+            <div class="etiqueta">Nuestra fecha importante</div>
+          </div>
+        </div>
+
+        <div class="cuenta-regresiva azul" id="cuenta"></div>
+      </div>
+
+      <div class="divisor">
+        <img src="img/divirsor.gif" alt="Divisor decorativo">
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="seccion fade-section" id="seccion2">
+      <div class="eventos">
+        <div class="evento">
+          <img src="img/CARTAS.png" alt="Recepción" width="32">
+          <span>Recepción 2:00pm</span>
+        </div>
+        <div class="evento centro">
+          <img src="img/ubicacion.png" alt="Ubicación" width="32">
+          <a class="ubicacion-link" href="https://maps.app.goo.gl/jp9DjvZc6VtD21Tq5" target="_blank">
+            Salon de fiesta
+          </a>
+          <span>Ubicación</span>
+        </div>
+        <div class="evento">
+          <img src="img/CIGUEñA.png" alt="Recepción" width="1000px">
+        </div>
+      </div>
+
+      <div class="divisor">
+        <img src="img/divirsor.gif" alt="Divisor decorativo">
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3 - TEMÁTICA REGALO -->
+    <section class="seccion fade-section" id="seccion3">
+      <div class="eventos">
+        <div class="evento">
+          <img src="img/NIñA.png" alt="Recepción" width="32">
+          <span>Si crees que sera una niña, lleva un paquete de pañales</span>
+        </div>
+        <div class="evento">
+          <img src="img/NIñO.png" alt="Recepción" width="32">
+          <span>Si crees que sera un niño, lleva un paquete de toallitas humedas</span>
+        </div>
+        <div class="evento">
+          <img src="img/mesaregalos.png" alt="Recepción" width="32">
+          <span>Tambien puedes llevar el regalo que tu desees</span>
+        </div>
+      </div>
+      <div class="divisor">
+        <img src="img/divirsor.gif" alt="Divisor decorativo">
+      </div>
+    </section>
+    <!-- SECCIÓN 4 – CONFIRMACIÓN DE ASISTENCIA -->
+    <section id="formulario" class="seccion fade-section">
+      <div class="eventos">
+        <div class="evento">
+          <img src="img/REGALO.png" alt="Recepción" width="32">
+          <span>Esperamos verte este dia tan importante para nosotros</span>
+        </div>
+      </div>
+      <form id="form-asistencia">
+        <label for="nombre"><strong>Escibre tu nombre a continuación:</strong></label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label><strong>¿Nos podras acompañar?</strong></label>
+        <div class="radio-group">
+          <label><input type="radio" name="asistencia" value="Sí" required /> Sí</label>
+          <label><input type="radio" name="asistencia" value="No" required /> No</label>
+        </div>
+
+        <button type="submit" onclick="event.preventDefault(); mostrarConfirmacion();">
+          Responder invitación
+        </button>
+      </form>
+
+      <div id="confirmacion-whatsapp" style="display:none;">
+        <p>Ya tengo tus respuestas, pero por favor confírmanos por WhatsApp:</p>
+        <button onclick="confirmarWhatsapp('claudia')">Confirmar por WhatsApp con Claudia</button>
+        <button onclick="confirmarWhatsapp('erik')">Confirmar por WhatsApp con Erik</button>
+      </div>
+
+      <div class="divisor">
+        <img src="img/divirsor.gif" alt="Divisor decorativo">
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Modal de Gracias -->
+<div id="modal-gracias" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+">
+  <div style="
+    background: white;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    color: #234634;
+    font-size: 1.8rem;
+    font-family: 'Cabin', sans-serif;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  ">
+    ¡Gracias por confirmar tu asistencia!
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+
