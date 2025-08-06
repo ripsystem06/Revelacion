@@ -2,19 +2,20 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: 'Comic Relief', sans-serif;
-  background:linear-gradient(to bottom, #ffeeee, #ffffff, #c7c9ff);
+  background: linear-gradient(to bottom, #fef2f2, #ffffff, #edefff);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
   background-size: cover;
   color: #3a3a6a;
   scroll-behavior: smooth;
   overflow-x: hidden;
   box-sizing: border-box;
+  overscroll-behavior-y: none;
 }
 
-/* SECCIONES AJUSTADAS PARA MOSTRAR TODO EL CONTENIDO */
+/* SECCIONES */
 .seccion {
   min-height: 100vh;
   width: 100%;
@@ -22,405 +23,13 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   text-align: center;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-/* FLORES SUPERIORES */
-.flores-top-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.flores-top {
-  max-width: 80%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-/* CONTENIDO CENTRAL CENTRADO */
-.contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-/* TIPOGRAFÍA FLUIDA */
-.frase {
-  font-style: italic;
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  margin: 0 0 1rem 0;
-}
-
-.subtitulo {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-}
-
-.titulo-mayus {
-  font-size: clamp(1rem, 2vw, 1rem);
-  letter-spacing: 0.2em;
-  margin-bottom: 1rem;
-}
-
-.nombre {
-  font-family: 'Birthstone Bounce', cursive;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  margin-bottom: 1rem;
-}
-
-.fecha-hora .numero {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-weight: bold;
-}
-
-.fecha-hora .etiqueta {
-  font-size: clamp(0.65rem, 1.8vw, 0.9rem);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.cuenta-regresiva {
-  font-size: clamp(0.9rem, 2.2vw, 1.2rem);
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
-/* DIVISOR */
-.divisor {
-  width: 100%;
-  text-align: center;
-}
-
-.divisor img {
-  width: 100%;
-  max-width: 380px;
-}
-
-/* EVENTOS EN COLUMNA Y GRILLA EN DESKTOP */
-.eventos {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* 20% menos espacio */
-  align-items: center;
-  flex-wrap: wrap;
-}
-/* TARJETAS DE EVENTO */
-.evento {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  opacity: 0;
-  transform: translateY(40px);
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
- background-color: transparent;
-  backdrop-filter: blur(8px);
-  padding: 0.5rem 0.5rem;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
-  justify-content: center;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-/* ANIMACIÓN DESVANECIDO HACIA ARRIBA */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.evento.visible {
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
-.evento.centro {
-  flex-direction: column;
-  align-items: center;
-}
-
-/* ANIMACIÓN PARA EL BOTÓN UBICACIÓN */
-.evento.centro.visible .ubicacion-link {
-  animation: fadeUp 0.8s ease-out forwards;
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-/* BOTÓN DE UBICACIÓN */
-.ubicacion-link {
-  background-color: #3a3a6a;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: clamp(0.9rem, 2vw, 1rem);
-  text-align: center;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.ubicacion-link:hover {
-  background-color: #1c3727;
-}
-
-/* NUEVA SECCIÓN DE COLORES */
-.colores-restringidos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.5rem;
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.color-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: clamp(0.72rem, 1.6vw, 0.85rem); /* 20% más pequeño */
-}
-
-.color-circle {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #234634;
-}
-
-/* EVENTO DE VESTIMENTA MÁS GRANDE Y CON ICONO ABAJO */
-.evento.vestimenta {
-  flex-direction: column;
-  font-size: clamp(1.1rem, 2.8vw, 1.55rem);
-}
-
-.evento.vestimenta img {
-  margin-top: 0.5rem;
-  width: 48px;
-  height: auto;
-}
-
-/* SUBTÍTULO IMPORTANTE */
-.evento-subtitulo {
-  justify-content: center;
-  font-weight: bold;
-  font-size: clamp(1.5rem, 2.8vw, 1.5rem);
-  text-align: center;
-}
-
-/* BEBIDAS Y NIÑOS - ÍCONOS DEBAJO O AL LADO */
-.evento img {
-  margin-left: 0.5rem;
-  width: 50px;
-  height: auto;
-}
-
-/* FADE DE SECCIONES */
-.fade-section {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.fade-section.active {
-  opacity: 1;
-}
-
-/* SECCIÓN 4 - REGALO */
-.contenido-regalo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.mensaje-grande {
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
-  font-weight: bold;
-  line-height: 1.4;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-}
-
-.icono-sobre {
-  width: 200px;
-  height: auto;
-}
-
-.mensaje-secundario {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  line-height: 1.4;
-  margin: 0;
-}
-
-
-/* Estilos del formulario */
-#formulario {
-  padding: 4em 1em;
-  text-align: center;
-  background-color: transparent;
-  backdrop-filter: blur(8px);
-  color: #3a3a6a;
-  font-family: 'Comic Relief', sans-serif;
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-#formulario.fade-section {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-#formulario.fade-section.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#form-asistencia {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-  margin-top: 2em;
-  max-width: 320px;
-  margin-inline: auto;
-}
-
-#form-asistencia input[type="text"] {
-  padding: 0.75em;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 80%; /* 20% menos ancho */
-  font-size: 1rem;
-  background: #fdfdfd;
-}
-
-#form-asistencia label {
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-bottom: 0.2em;
-}
-
-/* Alineación horizontal de los radios */
-.radio-group {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  align-items: center;
-  margin-top: -0.5em;
-}
-
-.radio-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  font-weight: normal;
-  font-size: 1rem;
-}
-
-#form-asistencia input[type="radio"] {
-  margin: 0;
-}
-
-#form-asistencia button[type="submit"] {
-  background-color: #6d72c3;
-  color: white;
-  padding: 0.8em 1.5em;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#form-asistencia button[type="submit"]:hover {
-  background-color: #4e5dbf;
-}
-
-/* ========== SECCIÓN CONFIRMACIÓN WHATSAPP ========== */
-#confirmacion-whatsapp {
-  margin-top: 2em;
-  text-align: center;
-}
-
-#confirmacion-whatsapp p {
-  font-size: 1rem;
-  margin-bottom: 1em;
-}
-
-#confirmacion-whatsapp button {
-  margin: 0.5em;
-  padding: 0.8em 1.5em;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  max-width: 320px;
-}
-
-#confirmacion-whatsapp button:first-of-type {
-  background-color: #f2a1a1; /* Verde oliva para Claudia */
-}
-
-#confirmacion-whatsapp button:last-of-type {
-  background-color: #6d72c3; /* Verde profundo para Erik */
-}
-
-#confirmacion-whatsapp button:hover {
-  opacity: 0.9;
-}
-
-/* MENSAJE DE CARGA */
-#mensaje-cargando {
-  font-size: 1rem;
-  font-style: italic;
-  margin-top: 1em;
-  color: #555;
-  display: none;
-}
-
-
-
-
-/* Colores alternados para secciones */
-.azul {
-  color: #6d72c3 !important;
-}
-
-.rosa {
-  color: #f2a1a1 !important;
-}
-
-/* PORTADA A PANTALLA COMPLETA */
+/* PORTADA FULLSCREEN */
 .pantalla-completa {
   position: fixed;
   top: 0;
@@ -440,8 +49,10 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   z-index: -1;
+  max-height: 100vh;
 }
 
 .mensaje-portada {
@@ -450,22 +61,223 @@ html, body {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
-  color: rgb(47, 3, 60);
+  color: white;
   font-family: 'Comic Relief', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   z-index: 2;
 }
 
-/* ANIMACIÓN PARPADEO */
 @keyframes blink {
-  0%, 50%, 100% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0;
-  }
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
 .parpadeo {
   animation: blink 2s infinite;
+}
+
+/* DIVISOR */
+.divisor {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+.divisor img {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* FLORES DECORATIVAS */
+.flores-top-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.flores-top {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* CONTENIDO CENTRAL */
+.contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.frase {
+  font-style: italic;
+  font-size: clamp(1rem, 2.75vw, 1.32rem);
+}
+.subtitulo {
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+}
+.titulo-mayus {
+  font-size: clamp(1.1rem, 2.2vw, 1.1rem);
+  letter-spacing: 0.2em;
+}
+.nombre {
+  font-family: 'Birthstone Bounce', cursive;
+  font-size: clamp(2.6rem, 6.5vw, 3.9rem);
+}
+.fecha-hora .numero {
+  font-size: clamp(1.32rem, 3.3vw, 1.76rem);
+  font-weight: bold;
+}
+.fecha-hora .etiqueta {
+  font-size: clamp(0.72rem, 2vw, 1rem);
+  text-transform: uppercase;
+}
+.cuenta-regresiva {
+  font-size: clamp(1rem, 2.4vw, 1.32rem);
+  font-weight: bold;
+}
+
+/* EVENTOS */
+.eventos {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.evento {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(40px);
+  font-size: clamp(1.1rem, 2.75vw, 1.54rem);
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+  padding: 0.5rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+.evento.visible {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.evento.centro {
+  flex-direction: column;
+  align-items: center;
+}
+.evento img {
+  width: 55px;
+  height: auto;
+}
+.img-cigueña {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin-top: 1rem;
+}
+.ubicacion-link {
+  background-color: #6d72c3;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  text-decoration: none;
+}
+
+/* FORMULARIO */
+#formulario {
+  padding: 3rem 1rem;
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+}
+#form-asistencia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
+  max-width: 320px;
+  margin-inline: auto;
+}
+#form-asistencia input[type="text"] {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+  background: #fdfdfd;
+  scroll-margin-top: 100px;
+}
+#form-asistencia input[type="radio"] {
+  margin: 0;
+  scroll-margin-top: 100px;
+}
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: -0.5em;
+}
+#form-asistencia button[type="submit"] {
+  background-color: #6d72c3;
+  color: white;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#form-asistencia button[type="submit"]:hover {
+  background-color: #4e5dbf;
+}
+
+/* WHATSAPP */
+#confirmacion-whatsapp {
+  margin-top: 2em;
+  text-align: center;
+}
+#confirmacion-whatsapp button {
+  margin: 0.5em;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  max-width: 320px;
+}
+#confirmacion-whatsapp button:first-of-type {
+  background-color: #f2a1a1;
+}
+#confirmacion-whatsapp button:last-of-type {
+  background-color: #6d72c3;
+}
+
+/* COLORES UTILITARIOS */
+.rosa {
+  color: #f2a1a1 !important;
+}
+.azul {
+  color: #6d72c3 !important;
 }
