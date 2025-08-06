@@ -4,7 +4,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: 'Comic Relief', sans-serif;
-  background: linear-gradient(to bottom, #fef2f2, #ffffff, #edefff);
+  background: linear-gradient(to bottom, #e3b6b6, #ffffff, #edefff);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
