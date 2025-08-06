@@ -124,8 +124,8 @@ function confirmarWhatsapp(destino) {
     return;
   }
 
-  const mensajeSi = "Gracias por el demo, quiero mi invitacion personalizada!";
-  const mensajeNo = "Gracias por el momento no me interesa, guardare tu contacto, Saludos!";
+  const mensajeSi = "Gracias por la invitacion ahi estare!";
+  const mensajeNo = "Gracias pero no podre acompañarlos, saludos!";
   const mensaje = asistenciaInput.value === "No" ? mensajeNo : mensajeSi;
 
   const numero = destino === 'claudia' ? '5216461517207' : '5216461515789';
