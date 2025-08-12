@@ -35,7 +35,7 @@ eventos.forEach(evento => observerEvento.observe(evento));
 // --- CUENTA REGRESIVA ---
 function iniciarCuentaRegresiva() {
   const cuenta = document.getElementById("cuenta");
-  const fechaObjetivo = new Date("2025-08-15T00:00:00").getTime();
+  const fechaObjetivo = new Date("2025-08-17T00:00:00").getTime();
 
   function actualizarCuenta() {
     const ahora = new Date().getTime();
